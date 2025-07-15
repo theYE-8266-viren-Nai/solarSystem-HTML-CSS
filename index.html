@@ -4,8 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin : 0;
+            height : 100vh;
+            display : flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow : hidden
+        }
+        .container {
+            font-size: 10px;
+            width : 40em;
+            position: relative;
+            width: 200px;
+            height: 40em;
+        }
+        .sun {
+            position: absolute;
+            width: 10em;
+            height: 10em;
+            border-radius: 50%;
+            background-color: yellow;
+            top:15em;
+            left:15em;
+            box-shadow : 0 0 3em white;
+        }
+        .earth{
+            position: absolute;
+            border-style: solid;
+            border-color : white transparent transparent transparent;
+            border-width : 0.1em 0.1em 0 0;
+            border-radius : 50%;
+        }
+        .earth {
+            width: 30em;
+            height: 30em;
+            top: 5em;
+            left: 5em;
+            animation: orbit 36.5s linear infinite;
+        }
+        .moon {
+            top : 0.8em;
+            right : 0.2em;
+            width :1.2em;
+            height : 1.2 em;
+            background-color: silver;
+        }
+        @keyframes orbit {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <div class="container">
+        <div class="sun">
+        </div>
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+    </div>
 </body>
 </html>
