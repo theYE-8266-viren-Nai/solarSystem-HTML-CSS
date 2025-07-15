@@ -6,20 +6,19 @@
     <title>Document</title>
     <style>
         body {
-            margin : 0;
-            height : 100vh;
-            display : flex;
+            margin: 0;
+            height: 100vh;
+            display: flex;
             align-items: center;
             justify-content: center;
             background-color: black;
-            overflow : hidden
+            overflow: hidden;
         }
         .container {
             font-size: 10px;
-            width : 40em;
-            position: relative;
-            width: 200px;
+            width: 40em; /* Removed conflicting 200px */
             height: 40em;
+            position: relative;
         }
         .sun {
             position: absolute;
@@ -27,32 +26,39 @@
             height: 10em;
             border-radius: 50%;
             background-color: yellow;
-            top:15em;
-            left:15em;
-            box-shadow : 0 0 3em white;
-        }
-        .earth{
-            position: absolute;
-            border-style: solid;
-            border-color : white transparent transparent transparent;
-            border-width : 0.1em 0.1em 0 0;
-            border-radius : 50%;
+            top: 15em;
+            left: 15em;
+            box-shadow: 0 0 3em white;
         }
         .earth {
+            position: absolute;
             width: 30em;
             height: 30em;
             top: 5em;
             left: 5em;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
             animation: orbit 36.5s linear infinite;
+            transform-origin: 50% 50%; /* Center of rotation */
         }
         .moon {
-            top : 0.8em;
-            right : 0.2em;
-            width :1.2em;
-            height : 1.2 em;
+            position: absolute;
+            top: 0.8em;
+            right: 0.2em;
+            width: 1.2em;
+            height: 1.2em; /* Fixed unit syntax */
             background-color: silver;
+            border-radius: 50%; /* Make it circular */
+            animation: moonOrbit 5s linear infinite; /* Optional moon orbit */
         }
         @keyframes orbit {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes moonOrbit {
             to {
                 transform: rotate(360deg);
             }
@@ -61,8 +67,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="sun">
-        </div>
+        <div class="sun"></div>
         <div class="earth">
             <div class="moon"></div>
         </div>
